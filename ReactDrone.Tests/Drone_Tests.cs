@@ -20,13 +20,13 @@ namespace ReactDrone.Tests
         [Fact]
         public void The_location_of_a_drone_can_be_observed()
         {
-            Drone.Create().Location.ToEnumerable().Take(1).Should().NotBeNull();
+            Drone.Create().Location.Take(1).Wait().Should().NotBeNull();
         }
 
         [Fact]
         public void The_state_of_a_drone_can_be_observed()
         {
-            Drone.Create().State.ToEnumerable().Take(1).Should().NotBeNull();
+            Drone.Create().State.Take(1).Wait().Should().NotBeNull();
         }
 
         [Fact]
