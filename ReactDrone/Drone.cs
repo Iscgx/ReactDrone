@@ -14,7 +14,7 @@ namespace ReactDrone
         {
             Location = Observable.Repeat(new Location(0, 0, 0));
             State = Observable.Repeat(DroneState.Unknown);
-            Axes = Observable.Repeat(new Axes());
+            Axes = Observable.Repeat(new Axes(0, 0, 0));
         }
 
         public IObservable<Location> Location { get; }
