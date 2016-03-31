@@ -85,6 +85,7 @@
     <Compile Include="Drone_Tests.cs" />
     <Compile Include="GPS.cs" />
     <Compile Include="GPS_Tests.cs" />
+    <Compile Include="IGPS.cs" />
     <Compile Include="Location_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

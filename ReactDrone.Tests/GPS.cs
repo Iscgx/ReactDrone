@@ -3,7 +3,7 @@ using System.Reactive.Linq;
 
 namespace ReactDrone.Tests
 {
-    public class GPS
+    public class GPS : IGPS
     {
         public GPS()
         {
