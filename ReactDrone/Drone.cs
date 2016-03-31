@@ -12,7 +12,7 @@ namespace ReactDrone
 
         Drone()
         {
-            Location = Observable.Repeat(new Location());
+            Location = Observable.Repeat(new Location(0, 0, 0));
             State = Observable.Repeat(DroneState.Unknown);
         }
 
