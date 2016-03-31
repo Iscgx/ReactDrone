@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="Drone.cs" />
     <Compile Include="DroneState.cs" />
+    <Compile Include="GPS.cs" />
+    <Compile Include="IGPS.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

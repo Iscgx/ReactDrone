@@ -1,7 +1,7 @@
 using System;
 using System.Reactive.Linq;
 
-namespace ReactDrone.Tests
+namespace ReactDrone
 {
     public class GPS : IGPS
     {

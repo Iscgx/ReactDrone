@@ -1,6 +1,6 @@
 using System;
 
-namespace ReactDrone.Tests
+namespace ReactDrone
 {
     public interface IGPS
     {
