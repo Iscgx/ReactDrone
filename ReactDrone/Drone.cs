@@ -3,7 +3,7 @@ using System.Reactive.Linq;
 
 namespace ReactDrone
 {
-    public class Drone : IDrone
+    public class Drone
     {
         public Drone(IObservable<Location> location, IObservable<DroneState> state, IObservable<Axes> axes)
         {
