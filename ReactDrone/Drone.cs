@@ -7,16 +7,9 @@ namespace ReactDrone
     {
         public static Drone Create()
         {
-            return new Drone();
-        }
-
-        Drone()
-            : this(
-                Observable.Repeat(new Location(0, 0, 0)),
+            return new Drone(Observable.Repeat(new Location(0, 0, 0)),
                 Observable.Repeat(DroneState.Unknown),
-                Observable.Repeat(new Axes(0, 0, 0)))
-        {
-
+                Observable.Repeat(new Axes(0, 0, 0)));
         }
 
         Drone(IObservable<Location> location, IObservable<DroneState> state, IObservable<Axes> axes)
