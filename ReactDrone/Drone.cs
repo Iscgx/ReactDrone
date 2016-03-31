@@ -11,10 +11,19 @@ namespace ReactDrone
         }
 
         Drone()
+            : this(
+                Observable.Repeat(new Location(0, 0, 0)),
+                Observable.Repeat(DroneState.Unknown),
+                Observable.Repeat(new Axes(0, 0, 0)))
         {
-            Location = Observable.Repeat(new Location(0, 0, 0));
-            State = Observable.Repeat(DroneState.Unknown);
-            Axes = Observable.Repeat(new Axes(0, 0, 0));
+
+        }
+
+        Drone(IObservable<Location> location, IObservable<DroneState> state, IObservable<Axes> axes)
+        {
+            Location = location;
+            State = state;
+            Axes = axes;
         }
 
         public IObservable<Location> Location { get; }
