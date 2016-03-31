@@ -5,13 +5,6 @@ namespace ReactDrone
 {
     public class Drone : IDrone
     {
-        public static Drone Create()
-        {
-            return new Drone(Observable.Throw<Location>(new Exception()),
-                Observable.Throw<DroneState>(new Exception()),
-                Observable.Throw<Axes>(new Exception()));
-        }
-
         public Drone(IObservable<Location> location, IObservable<DroneState> state, IObservable<Axes> axes)
         {
             this.Location = location;
