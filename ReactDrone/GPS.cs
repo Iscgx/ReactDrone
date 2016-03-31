@@ -5,14 +5,19 @@ namespace ReactDrone
 {
     public class GPS : IGPS
     {
-        public GPS()
+        GPS(IObservable<Location> locationSource)
         {
-            Location = Observable.Repeat(new Location(0, 0, 0));
+            Location = locationSource;
         }
 
         public static GPS Create()
         {
-            return new GPS();
+            return new GPS(Observable.Repeat(new Location(0, 0, 0)));
+        }
+
+        public static GPS Create(IObservable<Location> locationSource)
+        {
+            return new GPS(locationSource);
         }
 
         public IObservable<Location> Location { get;}
