@@ -2,6 +2,8 @@ namespace ReactDrone
 {
     public enum DroneState
     {
-        Unknown
+        Unknown,
+        Running,
+        Starting
     }
 }
