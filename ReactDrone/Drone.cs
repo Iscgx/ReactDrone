@@ -3,7 +3,7 @@ using System.Reactive.Linq;
 
 namespace ReactDrone
 {
-    public class Drone
+    public class Drone : IDrone
     {
         public static Drone Create()
         {
