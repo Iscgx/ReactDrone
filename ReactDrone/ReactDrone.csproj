@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Axes.cs" />
     <Compile Include="Drone.cs" />
     <Compile Include="DroneState.cs" />
     <Compile Include="GPS.cs" />

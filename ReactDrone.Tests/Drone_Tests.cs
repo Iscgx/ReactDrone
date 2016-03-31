@@ -28,5 +28,11 @@ namespace ReactDrone.Tests
         {
             Drone.Create().State.ToEnumerable().Take(1).Should().NotBeNull();
         }
+
+        [Fact]
+        public void The_axes_of_a_drone_can_be_observed()
+        {
+            Drone.Create().Axes.Take(1).Wait().Should().NotBeNull();
+        }
     }
 }
