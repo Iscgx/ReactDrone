@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Drone_Tests.cs" />
+    <Compile Include="GPS.cs" />
     <Compile Include="GPS_Tests.cs" />
     <Compile Include="Location_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

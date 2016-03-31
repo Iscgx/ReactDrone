@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Reactive.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -15,13 +12,11 @@ namespace ReactDrone.Tests
         {
             GPS.Create().Should().NotBeNull();
         }
-    }
 
-    public class GPS
-    {
-        public static GPS Create()
+        [Fact]
+        public void The_location_of_a_GPS_can_be_observed()
         {
-            return new GPS();
+            GPS.Create().Location.ToEnumerable().Take(1).Should().NotBeNull();
         }
     }
 }
