@@ -82,6 +82,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DroneBuilder.cs" />
     <Compile Include="Drone_Tests.cs" />
     <Compile Include="GPS_Tests.cs" />
     <Compile Include="Program_Tests.cs" />

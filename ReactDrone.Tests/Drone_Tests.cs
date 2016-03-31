@@ -15,19 +15,22 @@ namespace ReactDrone.Tests
         [Fact]
         public void The_location_of_a_drone_can_be_observed()
         {
-            Drone.Create().Location.Take(1).Wait().Should().NotBeNull();
+            var drone = new DroneBuilder().WithLocation(Observable.Return(new Location(0, 0, 0))).Build();
+            drone.Location.Wait().Should().NotBeNull();
         }
 
         [Fact]
         public void The_state_of_a_drone_can_be_observed()
         {
-            Drone.Create().State.Take(1).Wait().Should().NotBeNull();
+            var drone = new DroneBuilder().WithState(Observable.Return(DroneState.Unknown)).Build();
+            drone.State.Wait().Should().NotBeNull();
         }
 
         [Fact]
         public void The_axes_of_a_drone_can_be_observed()
         {
-            Drone.Create().Axes.Take(1).Wait().Should().NotBeNull();
+            var drone = new DroneBuilder().WithAxes(Observable.Return(new Axes(0, 0, 0))).Build();
+            drone.Axes.Wait().Should().NotBeNull();
         }
     }
 }
