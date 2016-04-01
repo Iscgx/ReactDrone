@@ -3,20 +3,19 @@ using System.Reactive.Linq;
 
 namespace ReactDrone
 {
-    public class Drone : IDrone
+    public class Drone : IObservable<DroneState>
     {
-        public Drone(IObservable<Location> location, IObservable<DroneState> state, IObservable<Axes> axes)
+        readonly IObservable<DroneState> stateSource;
+
+        public Drone(IObservable<DroneState> stateSource)
         {
-            this.Location = location;
-            this.State = state;
-            this.Axes = axes;
+            this.stateSource = stateSource;
         }
 
-        public IObservable<Location> Location { get; }
-
-        public IObservable<DroneState> State { get; }
-
-        public IObservable<Axes> Axes { get; }
+        public IDisposable Subscribe(IObserver<DroneState> observer)
+        {
+            return stateSource.Subscribe(observer);
+        }
     }
 }
 
