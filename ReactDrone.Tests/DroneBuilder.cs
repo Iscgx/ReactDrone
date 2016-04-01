@@ -6,7 +6,7 @@ namespace ReactDrone.Tests
     {
         readonly IObservable<Location> location;
 
-        readonly IObservable<DroneState> state;
+        readonly IObservable<DroneStatus> state;
 
         readonly IObservable<Axes> axes;
 
@@ -17,7 +17,7 @@ namespace ReactDrone.Tests
             axes = null;
         }
 
-        DroneBuilder(IObservable<Location> location, IObservable<DroneState> state, IObservable<Axes> axes)
+        DroneBuilder(IObservable<Location> location, IObservable<DroneStatus> state, IObservable<Axes> axes)
         {
             this.location = location;
             this.state = state;
@@ -29,7 +29,7 @@ namespace ReactDrone.Tests
             return new DroneBuilder(newLocation, state, axes);
         }
 
-        public DroneBuilder WithState(IObservable<DroneState> newState)
+        public DroneBuilder WithState(IObservable<DroneStatus> newState)
         {
             return new DroneBuilder(location, newState, axes);
         }

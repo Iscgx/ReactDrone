@@ -13,7 +13,7 @@ namespace ReactDrone
                     .Select(angle => new Location(5*Math.Sin(angle), 5*Math.Cos(angle), 2))
                     .Repeat());
 
-            var drone = new Drone(circlingGPS.Location, Observable.Empty<DroneState>(), Observable.Empty<Axes>());
+            var drone = new Drone(circlingGPS.Location, Observable.Empty<DroneStatus>(), Observable.Empty<Axes>());
 
             drone.Location.Sample(TimeSpan.FromSeconds(1))
                 .Subscribe(l => Console.WriteLine($"({l.Latitude:000.000},{l.Longitude:000.000},{l.Altitude:000.000})"));

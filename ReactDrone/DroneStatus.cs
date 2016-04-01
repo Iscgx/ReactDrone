@@ -1,6 +1,6 @@
 namespace ReactDrone
 {
-    public enum DroneState
+    public enum DroneStatus
     {
         Unknown,
         Running,

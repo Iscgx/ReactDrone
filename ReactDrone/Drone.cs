@@ -5,7 +5,7 @@ namespace ReactDrone
 {
     public class Drone
     {
-        public Drone(IObservable<Location> location, IObservable<DroneState> state, IObservable<Axes> axes)
+        public Drone(IObservable<Location> location, IObservable<DroneStatus> state, IObservable<Axes> axes)
         {
             this.Location = location;
             this.State = state;
@@ -14,7 +14,7 @@ namespace ReactDrone
 
         public IObservable<Location> Location { get; }
 
-        public IObservable<DroneState> State { get; }
+        public IObservable<DroneStatus> State { get; }
 
         public IObservable<Axes> Axes { get; }
     }

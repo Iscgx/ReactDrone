@@ -14,9 +14,9 @@ namespace ReactDrone.Tests
         }
 
         [Fact]
-        public void The_state_of_a_drone_can_be_observed()
+        public void The_status_of_a_drone_can_be_observed()
         {
-            var drone = new DroneBuilder().WithState(Observable.Return(DroneState.Unknown)).Build();
+            var drone = new DroneBuilder().WithState(Observable.Return(DroneStatus.Unknown)).Build();
             drone.State.Wait().Should().NotBeNull();
         }
 
