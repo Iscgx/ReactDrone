@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Reactive.Linq;
 
-namespace ReactDrone.Tests
+namespace ReactDrone
 {
     public class DroneBuilder
     {
@@ -12,9 +13,9 @@ namespace ReactDrone.Tests
 
         public DroneBuilder()
         {
-            location = null;
-            state = null;
-            axes = null;
+            location = Observable.Return(default(Location));
+            state = Observable.Return(default(DroneStatus));
+            axes = Observable.Return(default(Axes));
         }
 
         DroneBuilder(IObservable<Location> location, IObservable<DroneStatus> state, IObservable<Axes> axes)
@@ -29,7 +30,7 @@ namespace ReactDrone.Tests
             return new DroneBuilder(newLocation, state, axes);
         }
 
-        public DroneBuilder WithState(IObservable<DroneStatus> newState)
+        public DroneBuilder WithStatus(IObservable<DroneStatus> newState)
         {
             return new DroneBuilder(location, newState, axes);
         }
@@ -41,7 +42,7 @@ namespace ReactDrone.Tests
 
         public Drone Build()
         {
-            return new Drone(location, state, axes);
+            return new Drone(location.CombineLatest(state, axes, (l, s, a) => new DroneState(l, s, a)));
         }
     }
 }
