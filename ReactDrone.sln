@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactDrone", "ReactDrone\Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactDrone.Tests", "ReactDrone.Tests\ReactDrone.Tests.csproj", "{05256A29-0A46-4795-B369-8BEED8C6C2C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactDrone.Mavlink", "ReactDrone.Mavlink\ReactDrone.Mavlink.csproj", "{D7F2AF64-7B91-47E4-82E8-71267267281D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{05256A29-0A46-4795-B369-8BEED8C6C2C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05256A29-0A46-4795-B369-8BEED8C6C2C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05256A29-0A46-4795-B369-8BEED8C6C2C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7F2AF64-7B91-47E4-82E8-71267267281D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7F2AF64-7B91-47E4-82E8-71267267281D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7F2AF64-7B91-47E4-82E8-71267267281D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7F2AF64-7B91-47E4-82E8-71267267281D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
