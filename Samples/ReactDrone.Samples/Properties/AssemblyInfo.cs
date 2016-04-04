@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ReactDrone.Mavlink")]
+[assembly: AssemblyTitle("ReactDrone.Samples")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ReactDrone.Mavlink")]
+[assembly: AssemblyProduct("ReactDrone.Samples")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d7f2af64-7b91-47e4-82e8-71267267281d")]
+[assembly: Guid("3b114a1c-b002-48fd-809c-3f8832d7986b")]
 
 // Version information for an assembly consists of the following four values:
 //
