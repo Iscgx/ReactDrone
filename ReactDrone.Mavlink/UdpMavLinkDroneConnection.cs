@@ -36,7 +36,7 @@ namespace ReactDrone.Mavlink
         {
             return
                 MavLinkPacketStream
-                    .Select(evt => evt.Message as UasGpsRawInt)
+                    .Select(evt => evt.Message as UasGlobalPositionInt)
                     .Where(evt => evt != null)
                     .Select(evt => new Location(evt.Lat / 1E7f, evt.Lon / 1E7f, evt.Alt / 1000.0f));
         }
