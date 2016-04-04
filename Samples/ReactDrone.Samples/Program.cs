@@ -11,7 +11,7 @@ namespace ReactDrone.Samples
             var udpMavLinkDroneConnection = UdpMavLinkDroneConnection.Create(8888);
 
             var drone =
-                new DroneBuilder()
+                DroneBuilder.Create()
                     .WithLocationStream(udpMavLinkDroneConnection.GetLocationStream())
                     .Build();
 

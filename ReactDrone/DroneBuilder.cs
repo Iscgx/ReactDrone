@@ -11,13 +11,6 @@ namespace ReactDrone
 
         readonly IObservable<Axes> axesStream;
 
-        public DroneBuilder()
-        {
-            locationStream = Observable.Return(default(Location));
-            droneStatusStream = Observable.Return(default(DroneStatus));
-            axesStream = Observable.Return(default(Axes));
-        }
-
         DroneBuilder(IObservable<Location> locationStream,
             IObservable<DroneStatus> droneStatusStream,
             IObservable<Axes> axesStream)
@@ -25,6 +18,13 @@ namespace ReactDrone
             this.locationStream = locationStream;
             this.droneStatusStream = droneStatusStream;
             this.axesStream = axesStream;
+        }
+
+        public static DroneBuilder Create()
+        {
+            return new DroneBuilder(Observable.Return(default(Location)),
+                Observable.Return(default(DroneStatus)),
+                Observable.Return(default(Axes)));
         }
 
         public DroneBuilder WithLocationStream(IObservable<Location> newWhenLocationChanges)
