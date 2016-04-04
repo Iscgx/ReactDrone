@@ -7,10 +7,10 @@ namespace ReactDrone
     {
         public Drone(IObservable<DroneState> droneStateStream)
         {
-            DroneStateStream = droneStateStream;
+            WhenDroneStateChanges = droneStateStream;
         }
 
-        public IObservable<DroneState> DroneStateStream { get; }
+        public IObservable<DroneState> WhenDroneStateChanges { get; }
     }
 }
 
