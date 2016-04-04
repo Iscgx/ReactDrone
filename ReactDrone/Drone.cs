@@ -5,12 +5,12 @@ namespace ReactDrone
 {
     public class Drone
     {
-        public Drone(IObservable<DroneState> whenStateChanges)
+        public Drone(IObservable<DroneState> droneStateStream)
         {
-            WhenStateChanges = whenStateChanges;
+            DroneStateStream = droneStateStream;
         }
 
-        public IObservable<DroneState> WhenStateChanges { get; }
+        public IObservable<DroneState> DroneStateStream { get; }
     }
 }
 

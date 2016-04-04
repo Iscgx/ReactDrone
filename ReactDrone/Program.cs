@@ -18,7 +18,7 @@ namespace ReactDrone
                     .WithLocation(circlingGPS.Location)
                     .Build();
 
-            drone.WhenStateChanges.Select(d => d.Location).Sample(TimeSpan.FromSeconds(1))
+            drone.DroneStateStream.Select(d => d.Location).Sample(TimeSpan.FromSeconds(1))
                 .Subscribe(l => Console.WriteLine($"({l.Latitude:000.000},{l.Longitude:000.000},{l.Altitude:000.000})"));
             Console.ReadLine();
         }
