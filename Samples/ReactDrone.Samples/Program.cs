@@ -13,10 +13,15 @@ namespace ReactDrone.Samples
             var drone =
                 DroneBuilder.Create()
                     .WithLocationStream(udpMavLinkDroneConnection.GetLocationStream())
+                    .WithAxesStream(udpMavLinkDroneConnection.GetAxesStream())
                     .Build();
 
-            drone.WhenDroneStateChanges.Select(d => d.Location)
-                .Subscribe(Console.WriteLine);
+            drone.WhenDroneStateChanges
+                .Subscribe(s =>
+                {
+                    Console.WriteLine(s.Location);
+                    Console.WriteLine(s.Axes);
+                });
 
             Console.ReadLine();
         }
