@@ -14,5 +14,11 @@ namespace ReactDrone
         public double Pitch { get; }
 
         public double Yaw { get; }
+
+        public override string ToString()
+        {
+            return
+                $"{{{nameof(Roll)}:{Roll:#####.#####}, {nameof(Pitch)}:{Pitch:#####.#####}, {nameof(Yaw)}:{Yaw:#####.#####}}}";
+        }
     }
 }

@@ -9,8 +9,14 @@ namespace ReactDrone
             this.Altitude = altitude;
         }
 
-        public double Altitude { get; }
         public double Latitude { get; }
         public double Longitude { get; }
+        public double Altitude { get; }
+
+        public override string ToString()
+        {
+            return
+                $"{{{nameof(Latitude)}:{Latitude:#####.#####}, {nameof(Longitude)}:{Longitude:#####.#####}, {nameof(Altitude)}:{Altitude:#####.#####}}}";
+        }
     }
 }

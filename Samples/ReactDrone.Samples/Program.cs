@@ -11,12 +11,17 @@ namespace ReactDrone.Samples
             var udpMavLinkDroneConnection = UdpMavLinkDroneConnection.Create(8888);
 
             var drone =
-                new DroneBuilder()
-                    .WithLocation(udpMavLinkDroneConnection.GetLocationStream())
+                DroneBuilder.Create()
+                    .WithLocationStream(udpMavLinkDroneConnection.GetLocationStream())
+                    .WithAxesStream(udpMavLinkDroneConnection.GetAxesStream())
                     .Build();
 
-            drone.WhenStateChanges.Select(d => d.Location).Sample(TimeSpan.FromSeconds(1))
-                .Subscribe(l => Console.WriteLine($"({l.Latitude:000.000},{l.Longitude:000.000},{l.Altitude:000.000})"));
+            drone.WhenDroneStateChanges
+                .Subscribe(s =>
+                {
+                    Console.WriteLine(s.Location);
+                    Console.WriteLine(s.Axes);
+                });
 
             Console.ReadLine();
         }

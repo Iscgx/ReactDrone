@@ -36,9 +36,18 @@ namespace ReactDrone.Mavlink
         {
             return
                 MavLinkPacketStream
-                    .Select(evt => evt.Message as UasGpsRawInt)
-                    .Where(evt => evt != null)
-                    .Select(evt => new Location(evt.Lat / 1E7f, evt.Lon / 1E7f, evt.Alt / 1000.0f));
+                    .Select(packet => packet.Message as UasGlobalPositionInt)
+                    .Where(packet => packet != null)
+                    .Select(packet => new Location(packet.Lat / 1E7f, packet.Lon / 1E7f, packet.Alt / 1000.0f));
+        }
+
+        public IObservable<Axes> GetAxesStream()
+        {
+            return
+                MavLinkPacketStream
+                    .Select(packet => packet.Message as UasAttitude)
+                    .Where(packet => packet != null)
+                    .Select(packet => new Axes(packet.Roll, packet.Pitch, packet.Yaw));
         }
     }
 }
