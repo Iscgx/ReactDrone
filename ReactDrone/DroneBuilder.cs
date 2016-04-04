@@ -5,48 +5,48 @@ namespace ReactDrone
 {
     public class DroneBuilder
     {
-        readonly IObservable<Location> whenLocationChanges;
+        readonly IObservable<Location> locationStream;
 
-        readonly IObservable<DroneStatus> whenStatusChanges;
+        readonly IObservable<DroneStatus> droneStatusStream;
 
-        readonly IObservable<Axes> whenAxesChanges;
+        readonly IObservable<Axes> axesStream;
 
         public DroneBuilder()
         {
-            whenLocationChanges = Observable.Return(default(Location));
-            whenStatusChanges = Observable.Return(default(DroneStatus));
-            whenAxesChanges = Observable.Return(default(Axes));
+            locationStream = Observable.Return(default(Location));
+            droneStatusStream = Observable.Return(default(DroneStatus));
+            axesStream = Observable.Return(default(Axes));
         }
 
-        DroneBuilder(IObservable<Location> whenLocationChanges,
-            IObservable<DroneStatus> whenStatusChanges,
-            IObservable<Axes> whenAxesChanges)
+        DroneBuilder(IObservable<Location> locationStream,
+            IObservable<DroneStatus> droneStatusStream,
+            IObservable<Axes> axesStream)
         {
-            this.whenLocationChanges = whenLocationChanges;
-            this.whenStatusChanges = whenStatusChanges;
-            this.whenAxesChanges = whenAxesChanges;
+            this.locationStream = locationStream;
+            this.droneStatusStream = droneStatusStream;
+            this.axesStream = axesStream;
         }
 
-        public DroneBuilder WithLocation(IObservable<Location> newWhenLocationChanges)
+        public DroneBuilder WithLocationStream(IObservable<Location> newWhenLocationChanges)
         {
-            return new DroneBuilder(newWhenLocationChanges, whenStatusChanges, whenAxesChanges);
+            return new DroneBuilder(newWhenLocationChanges, droneStatusStream, axesStream);
         }
 
-        public DroneBuilder WithStatus(IObservable<DroneStatus> newWhenStatusChanges)
+        public DroneBuilder WithStatusStream(IObservable<DroneStatus> newWhenStatusChanges)
         {
-            return new DroneBuilder(whenLocationChanges, newWhenStatusChanges, whenAxesChanges);
+            return new DroneBuilder(locationStream, newWhenStatusChanges, axesStream);
         }
 
-        public DroneBuilder WithAxes(IObservable<Axes> newWhenAxesChanges)
+        public DroneBuilder WithAxesStream(IObservable<Axes> newWhenAxesChanges)
         {
-            return new DroneBuilder(whenLocationChanges, whenStatusChanges, newWhenAxesChanges);
+            return new DroneBuilder(locationStream, droneStatusStream, newWhenAxesChanges);
         }
 
         public Drone Build()
         {
             return
-                new Drone(whenLocationChanges.CombineLatest(whenStatusChanges,
-                    whenAxesChanges,
+                new Drone(locationStream.CombineLatest(droneStatusStream,
+                    axesStream,
                     (l, s, a) => new DroneState(l, s, a)));
         }
     }

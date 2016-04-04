@@ -12,7 +12,7 @@ namespace ReactDrone.Samples
 
             var drone =
                 new DroneBuilder()
-                    .WithLocation(udpMavLinkDroneConnection.GetLocationStream())
+                    .WithLocationStream(udpMavLinkDroneConnection.GetLocationStream())
                     .Build();
 
             drone.DroneStateStream.Select(d => d.Location).Sample(TimeSpan.FromSeconds(1))
